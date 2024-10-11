@@ -8,7 +8,7 @@ def index():
 @app.route('/entry', methods=["POST"])
 def entry():
     if request.method == "POST":
-        newEntry = JournalEntry(id=100,title=str(request.form["title"]),text=str(request.form["text"]))
+        newEntry = JournalEntry(id=100,title=str(request.form["title"]),textEntry=str(request.form["text"]))
         db.session.add(newEntry)
         db.session.commit()
     return render_template('index.html')
