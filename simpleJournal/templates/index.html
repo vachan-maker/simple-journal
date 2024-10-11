@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}"
     <title>Flowbite Flask</title>
 </head>
-<body class="max-">
+<body>
     <h1>Hello, Flask!</h1>
+    <form action="/entry" method="POST">
+        <input type="text" name='title' required/>
+        <textarea name='text' required></textarea>
+        <button type="submit">Create Entry!</button>
+    </form>
 </body>
 </html>

@@ -10,3 +10,6 @@ db = SQLAlchemy(app)
 
 from simpleJournal import routes
 #prevent circular import
+
+with app.app_context():
+    db.create_all()  
