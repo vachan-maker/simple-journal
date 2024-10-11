@@ -1,0 +1,1 @@
+from simpleJournal import model
