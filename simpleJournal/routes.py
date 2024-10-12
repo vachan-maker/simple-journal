@@ -4,12 +4,16 @@ from simpleJournal.model import JournalEntry
 from sqlalchemy.exc import SQLAlchemyError, DBAPIError
 from bs4 import BeautifulSoup
 import markdown
+import random
+colors = ['light-yellow','light-pink','blue','yellow']
 @app.route('/')
 def index():
     entries = JournalEntry.query.all()
     for entry in entries:
         markdownText = markdown.markdown(entry.textEntry)
         entry.textEntry = ''.join(BeautifulSoup(markdownText).findAll(text=True))
+        color = random.choice(colors)
+        entry.color = color
     return render_template('home.html', entries=entries)
 
 @app.route('/entry', methods=["POST"])

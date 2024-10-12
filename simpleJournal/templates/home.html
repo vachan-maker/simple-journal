@@ -6,15 +6,18 @@
 
 {% block content %}
 <form action="/entry" method="POST">
-    <input type="text" name='title' required />
-    <textarea name='text' required></textarea>
+    <label for="title">Enter title:</label>
+    <input type="text" name='title' id="title" required/>
+    <label for="content">Enter content: </label>
+    <textarea name='text' placeholder="What's on your mind?" required></textarea>
+    <p class="info"><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Supported.</a></p>
     <button type="submit">Create Entry!</button>
 </form>
 <section class="entries">
     <h2>Your entries</h2>
     <section class="entries-grid">
         {% for entry in entries %}
-        <article class="entry">
+        <article class="entry {{entry.color}}">
             <h3>{{ entry.title }}</h3>
             <div class="text">{{entry.textEntry|safe}}</div>
             <small><a href="/note/{{entry.id}}">Read More</a></small>

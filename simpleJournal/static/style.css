@@ -3,6 +3,13 @@
     margin: 0;
     padding:0;
 }
+header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid black;
+}
+label {
+    margin-bottom: 0.5rem;
+}
 body
 {
     font-family: 'Supreme', sans-serif;
@@ -23,13 +30,18 @@ h2,h3 {
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 input[type="text"],textarea,button {
     font: inherit;
     padding: 0.7rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     width: 100%;
 
+}
+.info {
+    font-size: smaller;
+    margin-bottom:0.5rem;
 }
 button {
     border:none;
@@ -47,7 +59,6 @@ button {
     flex-direction: column;
     width: 100%;
     min-height: 10rem;
-    background-color: bisque;
     padding: 1rem;
 }
 .entry > text {
@@ -59,4 +70,19 @@ button {
 h1 a:visited {
     color:black;
 
+}
+.yellow {
+    background-color: #fff740;
+}
+.light-yellow {
+    background-color: #feff9c;
+}
+.blue {
+    background-color: #7afcff;
+}
+.pink {
+    background-color: #ff65a3;
+}
+.light-pink {
+    background-color: #ff7eb9;
 }
