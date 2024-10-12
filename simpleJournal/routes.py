@@ -5,7 +5,9 @@ from sqlalchemy.exc import SQLAlchemyError, DBAPIError
 import markdown
 @app.route('/')
 def index():
-    return render_template('index.html')
+    entries = db.Query.all()
+    print(entries)
+    return render_template('index.html', entries=entries)
 
 @app.route('/entry', methods=["POST"])
 def entry():
@@ -20,7 +22,4 @@ def entry():
 def getEntry(id):
     entry = JournalEntry.query.get_or_404(id)
     return render_template('note.html', noteTitle = entry.title, noteContent=markdown.markdown(entry.textEntry))
-
-
-    return redirect(url_for('index'))
 
