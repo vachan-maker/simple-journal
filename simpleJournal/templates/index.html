@@ -7,30 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     <link href="https://api.fontshare.com/v2/css?f[]=supreme@400&f[]=chubbo@700&display=swap" rel="stylesheet">
+    {% block title %}{% endblock %}
 </head>
-
 <body>
     <header>
-        <h1>Simple Journal</h1>
+        <h1><a href="/">Simple Journal</a></h1>
         <p>Unlock your mind's treasures—where every thought becomes a journey!</p>
     </header>
-    <form action="/entry" method="POST">
-        <input type="text" name='title' required />
-        <textarea name='text' required></textarea>
-        <button type="submit">Create Entry!</button>
-    </form>
-    <section class="entries">
-        <h2>Your entries</h2>
-        <section class="entries-grid">
-            {% for entry in entries %}
-            <article class="entry">
-                <h3>{{ entry.title }}</h3>
-                <div>{{entry.textEntry|safe}}</div>
-            </article>
-            {% endfor %}
-        </section>
-
-    </section>
+    {% block content %}{% endblock %}
 </body>
-
 </html>

@@ -7,7 +7,7 @@ body
 {
     font-family: 'Supreme', sans-serif;
     font-size:1.2em;
-    max-width: 70rem;
+    max-width: 60rem;
     margin: 0 auto;
     padding: 1rem;
 }
@@ -40,6 +40,7 @@ button {
     grid-template-columns: repeat(4,1fr);
     width: 100%;
     gap: 1rem;
+    margin: 1rem;
 }
 .entry {
     display: flex;
@@ -49,8 +50,13 @@ button {
     background-color: bisque;
     padding: 1rem;
 }
-.entry div {
+.entry > text {
     width: 10rem;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
+}
+h1 a:visited {
+    color:black;
+
 }

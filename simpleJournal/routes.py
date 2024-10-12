@@ -10,7 +10,7 @@ def index():
     for entry in entries:
         markdownText = markdown.markdown(entry.textEntry)
         entry.textEntry = ''.join(BeautifulSoup(markdownText).findAll(text=True))
-    return render_template('index.html', entries=entries)
+    return render_template('home.html', entries=entries)
 
 @app.route('/entry', methods=["POST"])
 def entry():
@@ -20,7 +20,7 @@ def entry():
         db.session.commit()
     except(SQLAlchemyError, DBAPIError) as e:
         return e
-    return redirect(url_for('index'))
+    return redirect(url_for('home.html'))
 @app.route('/note/<int:id>')
 def getEntry(id):
     entry = JournalEntry.query.get_or_404(id)

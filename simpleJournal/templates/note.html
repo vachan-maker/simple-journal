@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{noteTitle}}</h1>
-    {{noteContent|safe}}
-</body>
-</html>
+{% extends 'index.html' %}
+{% block title %}
+    <title>{{noteTitle}}</title>
+{% endblock %}
+
+{% block content %}
+<article>
+<h2>{{noteTitle}}</h2>
+<div class="content">{{noteContent|safe}}</div>
+</article>
+{% endblock %}
+
+
