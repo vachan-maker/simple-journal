@@ -60,3 +60,8 @@ def deleteEntry(id):
         flash('Entry deletion Failed')
     return redirect(url_for('index'))
 
+@app.route('/confirm/<int:id>', methods=["POST"])
+def confirmDeletion(id):
+    entry = JournalEntry.query.get_or_404(id)
+    return render_template('confirm.html',noteID = entry.id)
+

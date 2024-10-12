@@ -9,7 +9,7 @@
 <div class="container">
 <h1>{{noteTitle}}</h1>
 <div class="container-two">
-    <form action="{{ url_for('deleteEntry', id=noteID) }}" method="POST">
+    <form action="{{ url_for('confirmDeletion', id=noteID) }}" method="POST">
         <button class="delete" type="submit">Delete Post</button>
     </form>
 </div>

@@ -49,6 +49,11 @@ input[type="text"],textarea,button {
 button {
     border:none;
     cursor: pointer;
+    background-color: #111111;
+    color: white;
+}
+button:hover {
+    background-color: #1a1a1a;
 }
 .entries-grid {
     display: grid;
@@ -110,6 +115,38 @@ p {
     align-items: center;
 }
 .delete {
+    font:inherit;
+    color:white;
+}
+.delete:hover {
     background-color: crimson;
-    color: white;
+}
+.yesDelete {
+    font:inherit;
+    color:white;
+    width: 50% !important;
+}
+.yesDelete:hover {
+    background-color: crimson;
+}
+.noButton {
+    font: inherit;
+    padding: 0.7rem;
+    background-color: bisque;
+    text-decoration: none;
+    background-color: #71BC78;
+    text-align: center;
+    width:50%;
+    height: fit-content;
+}
+.noButton:visited {
+    color: inherit;
+}
+.noButton:hover {
+    background-color: #50C878;
+}
+.confirmForm {
+    display: flex;
+    direction:flex-row;
+    gap: 1rem;
 }
