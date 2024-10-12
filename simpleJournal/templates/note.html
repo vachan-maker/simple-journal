@@ -5,8 +5,17 @@
 
 {% block content %}
 <article class="journalEntry">
+<header>
+<div class="container">
 <h1>{{noteTitle}}</h1>
+<div class="container">
+    <form action="{{ url_for('deleteEntry', id=noteID) }}" method="POST">
+        <button class="delete" type="submit">Delete Post</button>
+    </form>
+</div>
+</div>
 <p>Created On: {{noteDateTime}}</p>
+</header>
 <div class="content">{{noteContent|safe}}</div>
 </article>
 {% endblock %}

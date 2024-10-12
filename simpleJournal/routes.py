@@ -29,8 +29,10 @@ def entry():
         db.session.add(newEntry)
         db.session.commit()
     except(SQLAlchemyError, DBAPIError) as e:
-        return e
+        db.session.rollback()
     return redirect(url_for('index'))
+
+
 @app.route('/note/<int:id>')
 def getEntry(id):
     entry = JournalEntry.query.get_or_404(id)
@@ -44,5 +46,15 @@ def getEntry(id):
     ist_dateTime = utc_dateTime.astimezone(ist_zone)
     entry.created_at = ist_dateTime.strftime("%a %B %d, %Y at %H:%M")
     print(entry.created_at)
-    return render_template('note.html', noteTitle = entry.title, noteContent=markdown.markdown(entry.textEntry),noteDateTime = entry.created_at)
+    return render_template('note.html', noteTitle = entry.title, noteContent=markdown.markdown(entry.textEntry),noteDateTime = entry.created_at, noteID = entry.id)
+
+@app.route('/delete/<int:id>', methods=["POST"])
+def deleteEntry(id):
+    try:
+        entry = JournalEntry.query.get_or_404(id)
+        db.session.delete(entry)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+    return redirect(url_for('index'))
 
