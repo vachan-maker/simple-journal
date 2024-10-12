@@ -3,36 +3,60 @@
     margin: 0;
     padding:0;
 }
+html {
+    font-size:18px;
+}
 header {
     margin-bottom: 2rem;
     border-bottom: 1px solid black;
 }
-label {
-    margin-bottom: 0.5rem;
-}
 body
 {
     font-family: 'Supreme', sans-serif;
-    font-size:1.2em;
+    font-size:1rem;
     line-height: 1.4;
     max-width: 65rem;
     margin: 0 auto;
     padding: 1rem;
     background-color: #eeeedd;
 }
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Chubbo', sans-serif;
+}
 h1 {
-    font-family: 'Chubbo', sans-serif;
-    font-size: 2.5em;
-    line-height: 1.5;
+    font-size: 2.5rem;
+}
 
+h2 {
+    font-size: 2rem;
 }
-h2,h3 {
-    font-family: 'Chubbo', sans-serif;
+
+h3 {
+    font-size: 1.75rem;
 }
-form {
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem; 
+}
+
+h6 {
+    font-size: 1rem; 
+}
+.flex {
     display: flex;
+}
+.flex-col {
     flex-direction: column;
+}
+.justify-center {
     justify-content: center;
+}
+label {
+    margin-bottom: 0.3rem;
 }
 input[type="text"],textarea,button {
     font: inherit;
@@ -57,10 +81,9 @@ button:hover {
 }
 .entries-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
     width: 100%;
     gap: 1rem;
-    margin: 1rem;
 }
 .entry {
     display: flex;
