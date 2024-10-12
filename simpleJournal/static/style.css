@@ -14,9 +14,11 @@ body
 {
     font-family: 'Supreme', sans-serif;
     font-size:1.2em;
+    line-height: 1.4;
     max-width: 65rem;
     margin: 0 auto;
     padding: 1rem;
+    background-color: #eeeedd;
 }
 h1 {
     font-family: 'Chubbo', sans-serif;
@@ -39,6 +41,7 @@ input[type="text"],textarea,button {
     width: 100%;
 
 }
+
 .info {
     font-size: smaller;
     margin-bottom:0.5rem;
@@ -58,15 +61,16 @@ button {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 10rem;
+    max-height: 20rem;
     padding: 1rem;
-}
-.entry > text {
-    width: 10rem;
     overflow: hidden;
-    white-space: nowrap;
+    text-wrap: wrap;
     text-overflow: ellipsis;
+    border-radius: 5px;
 }
+/* .entry > text {
+    text-overflow: ellipsis;
+} */
 h1 a:visited {
     color:black;
 
@@ -85,4 +89,15 @@ h1 a:visited {
 }
 .light-pink {
     background-color: #ff7eb9;
+}
+.journalEntry {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+.journalEntry > h1 {
+    margin-bottom: 0.3rem;
+    border-bottom: 1px solid black;
+}
+p {
+    margin: 0.5rem;
 }

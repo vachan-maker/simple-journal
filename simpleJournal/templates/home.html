@@ -5,11 +5,15 @@
 {% endblock %}
 
 {% block content %}
+<header>
+    <h1><a href="/">Simple Journal</a></h1>
+    <p>Unlock your mind's treasures—where every thought becomes a journey!</p>
+</header>
 <form action="/entry" method="POST">
     <label for="title">Enter title:</label>
     <input type="text" name='title' id="title" required/>
     <label for="content">Enter content: </label>
-    <textarea name='text' placeholder="What's on your mind?" required></textarea>
+    <textarea name='text' placeholder="What's on your mind?"  rows="10" required></textarea>
     <p class="info"><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Supported.</a></p>
     <button type="submit">Create Entry!</button>
 </form>
@@ -18,9 +22,8 @@
     <section class="entries-grid">
         {% for entry in entries %}
         <article class="entry {{entry.color}}">
-            <h3>{{ entry.title }}</h3>
+            <h3><a href="/note/{{entry.id}}">{{ entry.title }}</a></h3>
             <div class="text">{{entry.textEntry|safe}}</div>
-            <small><a href="/note/{{entry.id}}">Read More</a></small>
         </article>
         {% endfor %}
     </section>
