@@ -2,6 +2,7 @@ from flask import render_template,url_for,redirect,request,flash
 from simpleJournal import app, db
 from simpleJournal.model import JournalEntry
 from sqlalchemy.exc import SQLAlchemyError, DBAPIError
+import markdown
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -14,6 +15,12 @@ def entry():
         db.session.commit()
     except(SQLAlchemyError, DBAPIError) as e:
         return e
+    return redirect(url_for('index'))
+@app.route('/note/<int:id>')
+def getEntry(id):
+    entry = JournalEntry.query.get_or_404(id)
+    return render_template('note.html', noteTitle = entry.title, noteContent=markdown.markdown(entry.textEntry))
+
 
     return redirect(url_for('index'))
 
