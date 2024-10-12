@@ -104,3 +104,12 @@ header > p {
 p {
     margin: 0.5rem;
 }
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete {
+    background-color: crimson;
+    color: white;
+}

@@ -54,7 +54,9 @@ def deleteEntry(id):
         entry = JournalEntry.query.get_or_404(id)
         db.session.delete(entry)
         db.session.commit()
+        flash('Entry deleted successfully!')
     except Exception as e:
         db.session.rollback()
+        flash('Entry deletion Failed')
     return redirect(url_for('index'))
 
