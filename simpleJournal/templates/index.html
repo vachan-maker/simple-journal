@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
-    <link href="https://api.fontshare.com/v2/css?f[]=supreme@400&f[]=chubbo@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link href="https://api.fontshare.com/v2/css?f[]=supreme@400&f[]=chubbo@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-    <h1>Simple Journal</h1>
-    <p>Unlock your mind's treasures—where every thought becomes a journey!</p>
+        <h1>Simple Journal</h1>
+        <p>Unlock your mind's treasures—where every thought becomes a journey!</p>
     </header>
     <form action="/entry" method="POST">
-        <input type="text" name='title' required/>
+        <input type="text" name='title' required />
         <textarea name='text' required></textarea>
         <button type="submit">Create Entry!</button>
     </form>
-    <section>
+    <section class="entries">
         <h2>Your entries</h2>
-        {% for entry in entries %}
+        <section class="entries-grid">
+            {% for entry in entries %}
+            <article class="entry">
                 <h3>{{ entry.title }}</h3>
-                <p>{{entry.textEntry}}</p>
-        {% endfor %}
-        
+                <div>{{entry.textEntry|safe}}</div>
+            </article>
+            {% endfor %}
+        </section>
+
     </section>
 </body>
+
 </html>

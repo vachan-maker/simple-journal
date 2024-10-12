@@ -17,7 +17,7 @@ h1 {
     line-height: 1.5;
 
 }
-h2 {
+h2,h3 {
     font-family: 'Chubbo', sans-serif;
 }
 form {
@@ -34,4 +34,23 @@ input[type="text"],textarea,button {
 button {
     border:none;
     cursor: pointer;
+}
+.entries-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    gap: 1rem;
+}
+.entry {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 10rem;
+    background-color: bisque;
+    padding: 1rem;
+}
+.entry div {
+    width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

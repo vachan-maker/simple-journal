@@ -2,11 +2,14 @@ from flask import render_template,url_for,redirect,request,flash
 from simpleJournal import app, db
 from simpleJournal.model import JournalEntry
 from sqlalchemy.exc import SQLAlchemyError, DBAPIError
+from bs4 import BeautifulSoup
 import markdown
 @app.route('/')
 def index():
-    entries = db.Query.all()
-    print(entries)
+    entries = JournalEntry.query.all()
+    for entry in entries:
+        markdownText = markdown.markdown(entry.textEntry)
+        entry.textEntry = ''.join(BeautifulSoup(markdownText).findAll(text=True))
     return render_template('index.html', entries=entries)
 
 @app.route('/entry', methods=["POST"])

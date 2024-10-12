@@ -6,4 +6,4 @@ class JournalEntry(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now())
     textEntry = db.Column(db.Text, nullable=False)
     def __repr__(self):
-        return f"User('{self.id}', '{self.title}', '{self.textEntry}')"
+        return f"User('{self.id}', '{self.title}', `{self.textEntry}`)"
