@@ -1,12 +1,29 @@
 :root {
-    --bg-light:#efefef;
-    --bg-dark: #111111;
-    --bg-dark-secondary:#1a1a1a;
+    --bg: #fafafa;
+    --bg-secondary:#efefef;
+    --text: #000000;
+    --card-text: var(--text);
+    --border: 2px solid var(--text);
     --yellow:#fff740;
     --light-yellow:#feff9c;
     --blue: #7afcff;
     --pink:#ff65a3;
     --light-pink:#ff7eb9;
+    --green:#2E7D32;
+    --sans:'Supreme', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg:#111111;
+        --bg-secondary: #1a1a1a;
+        --text:#fafafa;
+        --card-text: #000;
+        --border: 2px solid var(--text);
+        --pink:#980046;
+        --green:#2E7D32;
+
+
+    }
 }
 * {
     box-sizing: border-box;
@@ -15,23 +32,25 @@
 }
 html {
     font-size:18px;
+    scroll-behavior: smooth;
 }
 header {
     margin-bottom: 2rem;
-    border-bottom: 1px solid black;
+    border-bottom: var(--border)
 }
 body
 {
-    font-family: 'Supreme', sans-serif;
-    font-size:1rem;
-    line-height: 1.4;
+    font-family: var(--sans);
+    color: var(--text);
+    font-size:1.1rem;
+    line-height: 1.5;
     max-width: 65rem;
     margin: 0 auto;
-    padding: 1rem;
-    background-color: var(--bg-light);
+    background: var(--bg);
 }
 h1, h2, h3, h4, h5, h6{
     font-family: 'Chubbo', sans-serif;
+    color: var(--text);
 }
 h1 {
     font-size: 2.5rem;
@@ -56,6 +75,10 @@ h5 {
 h6 {
     font-size: 1rem; 
 }
+a,
+a:visited {
+    color: var(--text);
+}
 .flex {
     display: flex;
 }
@@ -68,7 +91,17 @@ h6 {
 label {
     margin-bottom: 0.3rem;
 }
+input[type="text"],textarea{
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--bg-secondary);
+}
+button {
+    background-color: var(--bg-secondary);
+    cursor: pointer;
+}
 input[type="text"],textarea,button {
+    border: var(--border);
+    color: var(--text);
     font: inherit;
     padding: 0.7rem;
     margin-bottom: 0.5rem;
@@ -80,14 +113,8 @@ input[type="text"],textarea,button {
     font-size: smaller;
     margin-bottom:0.5rem;
 }
-button {
-    border:none;
-    cursor: pointer;
-    background-color: #111111;
-    color: white;
-}
 button:hover {
-    background-color: #1a1a1a;
+    background-color: var(--green);
 }
 .entries-grid {
     display: grid;
@@ -109,24 +136,25 @@ button:hover {
 /* .entry > text {
     text-overflow: ellipsis;
 } */
-h1 a:visited {
-    color:black;
-
-}
 .yellow {
     background-color: var(--yellow);
+    color: var(--card-text);
 }
 .light-yellow {
     background-color: var(--light-yellow);
+    color: var(--card-text);
 }
 .blue {
     background-color:var(--blue);
+    color: var(--card-text);
 }
 .pink {
     background-color:var(--pink);
+    color: var(--card-text);
 }
 .light-pink {
     background-color: var(--light-pink);
+    color: var(--card-text);
 }
 .journalEntry {
     max-width: 50rem;
@@ -167,7 +195,7 @@ p {
     padding: 0.7rem;
     background-color: bisque;
     text-decoration: none;
-    background-color: #71BC78;
+    background-color: var(--green);
     text-align: center;
     width:50%;
     height: fit-content;
