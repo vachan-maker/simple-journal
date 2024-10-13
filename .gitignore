@@ -1,4 +1,4 @@
 .journal-env/
 .env
 instance/
-__pycache__/
+simpleJournal/__pycache__/
