@@ -162,7 +162,7 @@ button:hover {
 }
 .journalEntry > h1 {
     margin-bottom: 0.3rem;
-    border-bottom: 1px solid black;
+    border-bottom: var(--border);
 }
 header > p {
     margin:0.3rem
