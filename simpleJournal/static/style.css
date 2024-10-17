@@ -11,6 +11,7 @@
     --light-pink:#ff7eb9;
     --green:#2E7D32;
     --sans:'Supreme', Arial, sans-serif;
+    --note-heading: #000000;
 }
 @media (prefers-color-scheme: dark) {
     :root {
@@ -21,6 +22,7 @@
         --border: 2px solid var(--text);
         --pink:#980046;
         --green:#2E7D32;
+        --note-heading: #000000;
 
 
     }
@@ -35,7 +37,7 @@ html {
     scroll-behavior: smooth;
 }
 header {
-    margin-bottom: 2rem;
+    margin-bottom: 0.6rem;
     border-bottom: var(--border)
 }
 body
@@ -45,8 +47,9 @@ body
     font-size:1.1rem;
     line-height: 1.5;
     max-width: 65rem;
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
     background: var(--bg);
+    padding: 1rem;
 }
 h1, h2, h3, h4, h5, h6{
     font-family: 'Chubbo', sans-serif;
@@ -78,6 +81,9 @@ h6 {
 a,
 a:visited {
     color: var(--text);
+}
+.noteTitle a{
+    color: var(--note-heading);
 }
 .flex {
     display: flex;
@@ -174,6 +180,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.3rem;
 }
 .delete {
     font:inherit;
@@ -193,12 +200,12 @@ p {
 .noButton {
     font: inherit;
     padding: 0.7rem;
-    background-color: bisque;
     text-decoration: none;
     background-color: var(--green);
     text-align: center;
     width:50%;
     height: fit-content;
+    border: var(--border);
 }
 .noButton:visited {
     color: inherit;
@@ -208,6 +215,6 @@ p {
 }
 .confirmForm {
     display: flex;
-    direction:flex-row;
+    flex-direction: row;
     gap: 1rem;
 }

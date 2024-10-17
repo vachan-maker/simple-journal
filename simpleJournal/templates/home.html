@@ -22,7 +22,7 @@
     <section class="entries-grid">
         {% for entry in entries %}
         <article class="entry {{entry.color}}">
-            <h3><a href="/note/{{entry.id}}">{{ entry.title }}</a></h3>
+            <h3 class="noteTitle"><a  href="/note/{{entry.id}}">{{ entry.title }}</a></h3>
             <div class="text">{{entry.textEntry|safe}}</div>
         </article>
         {% endfor %}
